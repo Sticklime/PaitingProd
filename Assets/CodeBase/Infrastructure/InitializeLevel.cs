@@ -1,6 +1,7 @@
 ﻿using CodeBase.Infrastructure.Factory;
 using CodeBase.Logic.Player;
 using CodeBase.Logic.UI;
+using CodeBase.Logic.UI.UIElements;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure
@@ -16,7 +17,7 @@ namespace CodeBase.Infrastructure
         private PlayerLogic _redPlayer;
         private ScorePoint _scorePoint;
 
-        public InitializeLevel(IGameFactory gameFactory, SceneLoader sceneLoader,Game game)
+        public InitializeLevel(IGameFactory gameFactory, SceneLoader sceneLoader, Game game)
         {
             _gameFactory = gameFactory;
             _sceneLoader = sceneLoader;
@@ -25,6 +26,7 @@ namespace CodeBase.Infrastructure
 
         public void LoadLevel(GameModeType gameMode, string sceneName)
         {
+            Init.Instance.ShowInterstitialAd();
             _gameMode = gameMode;
             _sceneLoader.Load(sceneName, InitLevel);
         }
@@ -38,8 +40,8 @@ namespace CodeBase.Infrastructure
         private void InitHud()
         {
             GameObject hud = _gameFactory.CreateHud();
-            
-            hud.GetComponentInChildren<ExitMenuButton>().Construct(_game); 
+
+            hud.GetComponentInChildren<ExitMenuButton>().Construct(_game);
             _scorePoint = hud.GetComponentInChildren<ScorePoint>();
         }
 
@@ -48,12 +50,12 @@ namespace CodeBase.Infrastructure
             switch (_gameMode)
             {
                 case GameModeType.TwoPlayer:
-                    _bluePlayer = _gameFactory.CreatePlayer(Vector3.one, PlayerType.BluePlayer);
-                    _redPlayer = _gameFactory.CreatePlayer(Vector3.one, PlayerType.RedPlayer);
+                    _bluePlayer = _gameFactory.CreatePlayer(new Vector3(-6, -3), PlayerType.BluePlayer);
+                    _redPlayer = _gameFactory.CreatePlayer(new Vector3(6, -3), PlayerType.RedPlayer);
                     break;
                 case GameModeType.PcPlayer:
-                    _bluePlayer = _gameFactory.CreatePlayer(Vector3.one, PlayerType.BluePlayer);
-                    _redPlayer = _gameFactory.CreatePlayer(Vector3.one, PlayerType.RedPcPlayer);
+                    _bluePlayer = _gameFactory.CreatePlayer(new Vector3(-6, -3), PlayerType.BluePlayer);
+                    _redPlayer = _gameFactory.CreatePlayer(new Vector3(6, -3), PlayerType.RedPcPlayer);
                     break;
             }
 

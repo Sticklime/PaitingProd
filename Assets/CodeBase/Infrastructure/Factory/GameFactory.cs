@@ -5,19 +5,24 @@ using UnityEngine;
 
 namespace CodeBase.Infrastructure.Factory
 {
-    public class GameFactory : IGameFactory 
+    public class GameFactory : IGameFactory
     {
         private List<PlayerLogic> _playerPrefabs;
         private GameObject _hudPrefab;
+        private GameObject _menuPrefab;
 
         public void Load()
         {
             _playerPrefabs = Resources.LoadAll<PlayerLogic>(PathManager.PlayerPrefabsPath).ToList();
             _hudPrefab = Resources.Load<GameObject>(PathManager.HudPrefabPath);
+            _menuPrefab = Resources.Load<GameObject>(PathManager.MenuPrefab);
         }
 
-        public GameObject CreateHud() => 
+        public GameObject CreateHud() =>
             Object.Instantiate(_hudPrefab);
+
+        public GameObject CreateMenuChooseMode(Transform at) =>
+            Object.Instantiate(_menuPrefab, at);
 
         public PlayerLogic CreatePlayer(Vector3 at, PlayerType playerType)
         {

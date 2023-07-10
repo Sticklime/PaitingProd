@@ -1,7 +1,7 @@
 using CodeBase.Infrastructure;
 using UnityEngine;
 
-namespace CodeBase.Logic.UI
+namespace CodeBase.Logic.UI.UIElements
 {
     public class ExitMenuButton : MonoBehaviour
     {

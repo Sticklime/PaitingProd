@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using CodeBase.Infrastructure.Factory;
+using CodeBase.Logic.UI.UIElements;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace CodeBase.Infrastructure
 {
@@ -10,33 +10,31 @@ namespace CodeBase.Infrastructure
         private const string PaintSceneName = "Paint";
         private const string MenuSceneName = "Menu";
 
-        [SerializeField] private Button _pcFightButton;
-        [SerializeField] private Button _twoPlayerButton;
         [SerializeField] private int _durationGame;
 
         private IGameFactory _gameFactory;
         private SceneLoader _sceneLoader;
+        private int _countGamesPlayed;
+        private GameObject _menu;
 
         public void Awake()
         {
-            // это прототип, поэтму фабрика не создается в Bootstrapper 
             _sceneLoader = new SceneLoader(this);
             _gameFactory = new GameFactory();
             _gameFactory.Load();
+            InitMenu();
 
             DontDestroyOnLoad(gameObject);
         }
 
-        public void OnEnable()
+        private void InitMenu()
         {
-            _pcFightButton.onClick.AddListener(StartGamePC);
-            _twoPlayerButton.onClick.AddListener(StartGameTwoPlayer);
-        }
+            _menu = _gameFactory.CreateMenuChooseMode(gameObject.transform);
 
-        public void OnDisable()
-        {
-            _pcFightButton.onClick.RemoveListener(StartGamePC);
-            _twoPlayerButton.onClick.RemoveListener(StartGameTwoPlayer);
+            var gameModeButtons = _menu.GetComponentInChildren<ChoiceGameMode>();
+            
+            gameModeButtons.PcFightButton.onClick.AddListener(StartGamePC);
+            gameModeButtons.TwoPlayerButton.onClick.AddListener(StartGameTwoPlayer);
         }
 
         private void StartGameTwoPlayer() =>
@@ -48,13 +46,30 @@ namespace CodeBase.Infrastructure
         private IEnumerator OnStartGame(GameModeType gameMode)
         {
             new InitializeLevel(_gameFactory, _sceneLoader, this).LoadLevel(gameMode, PaintSceneName);
+            _menu.SetActive(false);
 
             yield return new WaitForSecondsRealtime(_durationGame);
 
             EndGame();
         }
 
-        public void EndGame() =>
-            _sceneLoader.Load(MenuSceneName);
+        public void EndGame()
+        {
+            _sceneLoader.Load(MenuSceneName, ReturnMenu);
+
+            RateGameFunc();
+        }
+
+        private void ReturnMenu() =>
+            _menu.SetActive(true);
+
+
+        private void RateGameFunc()
+        {
+            _countGamesPlayed++;
+
+            if (_countGamesPlayed == 3)
+                Init.Instance.RateGameFunc();
+        }
     }
 }

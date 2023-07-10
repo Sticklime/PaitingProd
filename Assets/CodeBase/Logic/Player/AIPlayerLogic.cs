@@ -13,13 +13,12 @@ namespace CodeBase.Logic.Player
         {
             while (true)
             {
-            
                 _direction = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
 
                 if (_direction.x == 0 && _direction.y == 0) 
                     _direction = new Vector2(0, 1);
 
-                yield return new WaitForSeconds(Random.Range(1f, 2f));
+                yield return new WaitForSeconds(1);
             }
         }
         
