@@ -1,4 +1,5 @@
 ﻿using CodeBase.Logic.UI;
+using CodeBase.Logic.UI.UIElements;
 using UnityEngine;
 
 namespace CodeBase.Logic.Player
@@ -13,10 +14,10 @@ namespace CodeBase.Logic.Player
         public void Construct(ScorePoint scorePoint) =>
             _scorePoint = scorePoint;
 
-        public void AddPoint(int countPoint) =>
+        public void AddPoint(int countPoint) => 
             _scorePoint.AddPoint(PlayerType, countPoint);
 
-        public void RemovedPoint(PlayerType playerType, int countPoint) =>
+        public void RemovedPoint(PlayerType playerType, int countPoint) => 
             _scorePoint.RemovedPoint(playerType, countPoint);
     }
 }

@@ -42,6 +42,8 @@ namespace CodeBase.Infrastructure
             GameObject hud = _gameFactory.CreateHud();
 
             hud.GetComponentInChildren<ExitMenuButton>().Construct(_game);
+            hud.GetComponentInChildren<TimerUI>().Construct(_game);
+
             _scorePoint = hud.GetComponentInChildren<ScorePoint>();
         }
 
@@ -61,6 +63,11 @@ namespace CodeBase.Infrastructure
 
             _bluePlayer.Construct(_scorePoint);
             _redPlayer.Construct(_scorePoint);
+        }
+
+        public void EndGame()
+        {
+            _scorePoint.ShowWinner();
         }
     }
 }
