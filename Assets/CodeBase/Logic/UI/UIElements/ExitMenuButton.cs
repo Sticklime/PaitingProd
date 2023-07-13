@@ -1,18 +1,16 @@
-using CodeBase.Infrastructure;
+using CodeBase.Infrastructure.State;
 using UnityEngine;
 
 namespace CodeBase.Logic.UI.UIElements
 {
     public class ExitMenuButton : MonoBehaviour
     {
-        private Game _game;
+        private MenuSate _menuSate;
 
-        public void Construct(Game game) => 
-            _game = game;
+        public void Construct(MenuSate menuSate) => 
+            _menuSate = menuSate;
 
         public void ExitMenu() => 
-            _game.EndGame();
-
-        public void ExitMainMenu() { }
+            _menuSate.Enter();
     }
 }

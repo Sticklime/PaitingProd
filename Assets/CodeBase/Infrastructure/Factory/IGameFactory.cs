@@ -8,6 +8,6 @@ namespace CodeBase.Infrastructure.Factory
         public void Load();
         public PlayerLogic CreatePlayer(Vector3 at, PlayerType playerType);
         public GameObject CreateHud();
-        public GameObject CreateMenuChooseMode(Transform at);
+        public GameObject CreateMenu();
     }
 }

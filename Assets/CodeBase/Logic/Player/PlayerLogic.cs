@@ -1,5 +1,4 @@
-﻿using CodeBase.Logic.UI;
-using CodeBase.Logic.UI.UIElements;
+﻿using CodeBase.Logic.UI.UIElements;
 using UnityEngine;
 
 namespace CodeBase.Logic.Player

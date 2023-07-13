@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 4921705170897539036}
   - component: {fileID: 3805918492236289068}
   - component: {fileID: 1365083305526615653}
+  - component: {fileID: 7457338213264576738}
   m_Layer: 5
   m_Name: Hud
   m_TagString: Untagged
@@ -377,6 +378,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &7457338213264576738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1539260108759464872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46dad8a15b38493d924202b1e6f10dd2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _redWin: {fileID: 1990377646075275945}
+  _blueWin: {fileID: 6708654956807594531}
 --- !u!1 &3326067057102144230
 GameObject:
   m_ObjectHideFlags: 0

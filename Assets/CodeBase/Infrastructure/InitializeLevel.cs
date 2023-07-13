@@ -1,4 +1,6 @@
 ﻿using CodeBase.Infrastructure.Factory;
+using CodeBase.Infrastructure.Localisation;
+using CodeBase.Infrastructure.State;
 using CodeBase.Logic.Player;
 using CodeBase.Logic.UI;
 using CodeBase.Logic.UI.UIElements;
@@ -8,20 +10,25 @@ namespace CodeBase.Infrastructure
 {
     public class InitializeLevel
     {
+        private readonly LocalisationServices _localisation;
         private readonly IGameFactory _gameFactory;
         private readonly SceneLoader _sceneLoader;
-        private readonly Game _game;
+        private readonly GameState _gameState;
+        private readonly MenuSate _menuSate;
 
         private GameModeType _gameMode;
         private PlayerLogic _bluePlayer;
         private PlayerLogic _redPlayer;
         private ScorePoint _scorePoint;
 
-        public InitializeLevel(IGameFactory gameFactory, SceneLoader sceneLoader, Game game)
+        public InitializeLevel(GameState gameState, MenuSate menuSate, IGameFactory gameFactory, SceneLoader sceneLoader,
+            LocalisationServices localisation)
         {
             _gameFactory = gameFactory;
             _sceneLoader = sceneLoader;
-            _game = game;
+            _gameState = gameState;
+            _menuSate = menuSate;
+            _localisation = localisation;
         }
 
         public void LoadLevel(GameModeType gameMode, string sceneName)
@@ -41,10 +48,11 @@ namespace CodeBase.Infrastructure
         {
             GameObject hud = _gameFactory.CreateHud();
 
-            hud.GetComponentInChildren<ExitMenuButton>().Construct(_game);
-            hud.GetComponentInChildren<TimerUI>().Construct(_game);
-
             _scorePoint = hud.GetComponentInChildren<ScorePoint>();
+
+            hud.GetComponentInChildren<ExitMenuButton>().Construct(_menuSate);
+            hud.GetComponentInChildren<TimerUI>().Construct(_gameState);
+            hud.GetComponent<LocalisationHud>().Construct(_localisation.GetLocalisationData(Init.Instance.language));
         }
 
         private void InitPlayers()
@@ -53,11 +61,11 @@ namespace CodeBase.Infrastructure
             {
                 case GameModeType.TwoPlayer:
                     _bluePlayer = _gameFactory.CreatePlayer(new Vector3(-6, -3), PlayerType.BluePlayer);
-                    _redPlayer = _gameFactory.CreatePlayer(new Vector3(6, -3), PlayerType.RedPlayer);
+                    _redPlayer = _gameFactory.CreatePlayer(new Vector3(6.27f, -3), PlayerType.RedPlayer);
                     break;
                 case GameModeType.PcPlayer:
                     _bluePlayer = _gameFactory.CreatePlayer(new Vector3(-6, -3), PlayerType.BluePlayer);
-                    _redPlayer = _gameFactory.CreatePlayer(new Vector3(6, -3), PlayerType.RedPcPlayer);
+                    _redPlayer = _gameFactory.CreatePlayer(new Vector3(6.27f, -3), PlayerType.RedPcPlayer);
                     break;
             }
 
@@ -65,9 +73,7 @@ namespace CodeBase.Infrastructure
             _redPlayer.Construct(_scorePoint);
         }
 
-        public void EndGame()
-        {
+        public void ShowWinner() =>
             _scorePoint.ShowWinner();
-        }
     }
 }

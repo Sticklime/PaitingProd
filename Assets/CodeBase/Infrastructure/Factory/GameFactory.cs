@@ -21,8 +21,8 @@ namespace CodeBase.Infrastructure.Factory
         public GameObject CreateHud() =>
             Object.Instantiate(_hudPrefab);
 
-        public GameObject CreateMenuChooseMode(Transform at) =>
-            Object.Instantiate(_menuPrefab, at);
+        public GameObject CreateMenu() =>
+            Object.Instantiate(_menuPrefab);
 
         public PlayerLogic CreatePlayer(Vector3 at, PlayerType playerType)
         {

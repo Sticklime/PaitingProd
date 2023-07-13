@@ -9,7 +9,7 @@ namespace CodeBase.Logic.Player
         public KeyCode LeftKey = KeyCode.A;
         public KeyCode RightKey = KeyCode.D;
 
-        public Vector2 PlayerInput()
+        public Vector2 PlayerInputPc()
         {
             Vector2 moveDirection = Vector2.zero;
 
@@ -21,6 +21,23 @@ namespace CodeBase.Logic.Player
                 moveDirection += Vector2.left;
             if (Input.GetKey(RightKey))
                 moveDirection += Vector2.right;
+
+            return moveDirection;
+        }
+        
+        public Vector2 PlayerInputMobile()
+        {
+            Vector2 moveDirection = Vector2.zero;
+            
+            for (int i = 0; i < Input.touchCount; i++)
+            {
+                Touch touch = Input.GetTouch(i);
+                
+                if (touch.position.x < Screen.width * 0.5f)
+                    moveDirection += Vector2.left;
+                else 
+                    moveDirection += Vector2.right;
+            }
 
             return moveDirection;
         }
