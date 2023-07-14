@@ -5,27 +5,22 @@ namespace CodeBase.Logic.Player
 {
     public class AIPlayerLogic : PlayerLogic
     {
-        [SerializeField] private float speed;
-
-        private Vector2 _direction;
+        public Vector2 Direction { get; private set; }
 
         private IEnumerator Start()
         {
             while (true)
             {
-                _direction = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
+                Direction = new Vector2(Random.Range(-1, 2), Random.Range(-1, 2));
 
-                if (_direction.x == 0 && _direction.y == 0)
-                    _direction = new Vector2(0, 1);
+                if (Direction.x == 0 && Direction.y == 0)
+                    Direction = new Vector2(0, 1);
 
                 yield return new WaitForSeconds(1);
             }
         }
 
-        private void Update() =>
-            transform.Translate(_direction * speed * Time.deltaTime);
-
         private void OnCollisionEnter2D(Collision2D collision) =>
-            _direction = new Vector2(_direction.x * -1, _direction.y * -1);
+            Direction = new Vector2(Direction.x * -1, Direction.y * -1);
     }
 }

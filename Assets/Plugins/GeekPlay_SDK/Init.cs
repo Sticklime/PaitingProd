@@ -255,7 +255,7 @@ public class Init : MonoBehaviour
                 	string s = PlayerPrefs.GetString("PlayerData");
                 	playerData = JsonUtility.FromJson<PlayerData>(s);
                 }
-                language = "tu"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr\
+                language = "ru"; //ВЫБРАТЬ ЯЗЫК ДЛЯ ТЕСТОВ. ru/en/tr\
                 Localization();
                 break;
             case Platform.Yandex:

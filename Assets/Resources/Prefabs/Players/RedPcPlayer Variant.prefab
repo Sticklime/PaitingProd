@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5410532183238054199, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_Size.x
-      value: 0.06110894
+      value: 0.42636594
       objectReference: {fileID: 0}
     - target: {fileID: 5410532183238054199, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_Size.y
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5410532183238054199, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_Offset.x
-      value: 0.06764892
+      value: 0.07344665
       objectReference: {fileID: 0}
     - target: {fileID: 5410532183238054199, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_Offset.y
@@ -78,11 +78,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5410532183238054199, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.3117647
+      value: 1.1736842
       objectReference: {fileID: 0}
     - target: {fileID: 5410532183238054199, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.3117647
+      value: 1.1736842
       objectReference: {fileID: 0}
     - target: {fileID: 5913083126928528987, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_Size.x
@@ -107,6 +107,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
       insertIndex: 3
       addedObject: {fileID: 8530395448114368683}
+    - targetCorrespondingSourceObject: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4858821129313143963}
+    - targetCorrespondingSourceObject: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2008772904393029384}
   m_SourcePrefab: {fileID: 100100000, guid: b8d90db919183954297907f252adebc6, type: 3}
 --- !u!1 &1535705075823468313 stripped
 GameObject:
@@ -127,4 +133,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PlayerType: 3
   PaintingColor: {r: 1, g: 0, b: 0, a: 1}
-  speed: 3
+--- !u!114 &4858821129313143963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535705075823468313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53282914fd72a6b4b9b3a390aa9cb961, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _logic: {fileID: 8530395448114368683}
+  _speed: 7
+--- !u!114 &2008772904393029384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535705075823468313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89ba214d7d2dbb4089c6193117746af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpKey: 119
+  DownKey: 115
+  LeftKey: 97
+  RightKey: 100

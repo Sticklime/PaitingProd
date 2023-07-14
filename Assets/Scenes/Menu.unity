@@ -183,7 +183,7 @@ MonoBehaviour:
   colorDebug: 
   wasLoad: 0
   language: 
-  mobile: 1
+  mobile: 0
 --- !u!114 &401506780
 MonoBehaviour:
   m_ObjectHideFlags: 0

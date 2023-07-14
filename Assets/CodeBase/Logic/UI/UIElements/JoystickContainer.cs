@@ -1,24 +1,27 @@
 using CodeBase.Infrastructure;
 using UnityEngine;
 
-public class JoystickContainer : MonoBehaviour
+namespace CodeBase.Logic.UI.UIElements
 {
-    public Joystick BlueJoystick;
-    public Joystick RedJoystick;
-
-    private GameModeType _gameModeType;
-
-    public void Construct(GameModeType gameMode) => 
-        _gameModeType = gameMode;
-
-    public void Start()
+    public class JoystickContainer : MonoBehaviour
     {
-        if (Init.Instance.mobile == false)
+        public Joystick BlueJoystick;
+        public Joystick RedJoystick;
+
+        private GameModeType _gameModeType;
+
+        public void Construct(GameModeType gameMode) => 
+            _gameModeType = gameMode;
+
+        public void Start()
         {
-            BlueJoystick.gameObject.SetActive(false);
-            RedJoystick.gameObject.SetActive(false);
+            if (Init.Instance.mobile == false)
+            {
+                BlueJoystick.gameObject.SetActive(false);
+                RedJoystick.gameObject.SetActive(false);
+            }
+            else if(Init.Instance.mobile && _gameModeType == GameModeType.PcPlayer) 
+                RedJoystick.gameObject.SetActive(false);
         }
-        else if(Init.Instance.mobile && _gameModeType == GameModeType.PcPlayer) 
-            RedJoystick.gameObject.SetActive(false);
     }
 }
