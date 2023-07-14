@@ -132,8 +132,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 401506778}
-  - component: {fileID: 401506779}
   - component: {fileID: 401506780}
+  - component: {fileID: 401506779}
   m_Layer: 0
   m_Name: Bootstrapper
   m_TagString: Untagged
@@ -183,7 +183,7 @@ MonoBehaviour:
   colorDebug: 
   wasLoad: 0
   language: 
-  mobile: 0
+  mobile: 1
 --- !u!114 &401506780
 MonoBehaviour:
   m_ObjectHideFlags: 0

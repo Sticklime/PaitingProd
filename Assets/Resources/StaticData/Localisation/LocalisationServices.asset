@@ -15,6 +15,7 @@ MonoBehaviour:
   NameLocalisation: tu
   Font: {fileID: 11400000, guid: 054f9fb9aa437e74e96c2af314199f5f, type: 2}
   DrawingForTwo: "\u0130ki ki\u015Filik \xE7ekili\u015F"
-  Drawing: "\xC7izim"
+  DescriptionMenu: "Silindirleri kontrol etmek i\xE7in W, A, S, D ve klavyedeki oklara
+    bas\u0131n. Boyal\u0131 b\xF6lge i\xE7in daha fazla puan al\u0131n ve kazan\u0131n!"
   BlueWin: "Mavi kazand\u0131"
   RedWin: "K\u0131rm\u0131z\u0131 kazand\u0131"

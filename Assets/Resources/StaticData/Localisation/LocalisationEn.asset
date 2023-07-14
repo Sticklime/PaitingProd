@@ -15,6 +15,7 @@ MonoBehaviour:
   NameLocalisation: en
   Font: {fileID: 11400000, guid: 054f9fb9aa437e74e96c2af314199f5f, type: 2}
   DrawingForTwo: Drawing for Two
-  Drawing: Drawing
+  DescriptionMenu: Press W, A, S, D and the arrows on the keyboard to control the
+    rollers. Get more points for the painted territory and win!
   BlueWin: Blue Win
   RedWin: Red Win

@@ -75,6 +75,7 @@ namespace CodeBase.Infrastructure
             _redPlayer.Construct(_scorePoint);
 
             JoystickContainer joystickContainer = _hud.GetComponentInChildren<JoystickContainer>();
+            joystickContainer.Construct(_gameMode);
 
             _bluePlayer.GetComponent<PlayerController>().Construct(joystickContainer.BlueJoystick);
             _redPlayer.GetComponent<PlayerController>().Construct(joystickContainer.RedJoystick);
