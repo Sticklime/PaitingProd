@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LocalisationServices
   m_EditorClassIdentifier: 
   NameLocalisation: tu
+  Font: {fileID: 11400000, guid: 054f9fb9aa437e74e96c2af314199f5f, type: 2}
   DrawingForTwo: "\u0130ki ki\u015Filik \xE7ekili\u015F"
   Drawing: "\xC7izim"
   BlueWin: "Mavi kazand\u0131"

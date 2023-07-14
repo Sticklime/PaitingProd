@@ -4,10 +4,17 @@ namespace CodeBase.Logic.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        public KeyCode UpKey = KeyCode.W;
-        public KeyCode DownKey = KeyCode.S;
-        public KeyCode LeftKey = KeyCode.A;
-        public KeyCode RightKey = KeyCode.D;
+        [SerializeField] private KeyCode UpKey = KeyCode.W;
+        [SerializeField] private KeyCode DownKey = KeyCode.S;
+        [SerializeField] private KeyCode LeftKey = KeyCode.A;
+        [SerializeField] private KeyCode RightKey = KeyCode.D;
+
+        private Joystick _joystick;
+
+        public void Construct(Joystick joystick)
+        {
+            _joystick = joystick;
+        }
 
         public Vector2 PlayerInputPc()
         {
@@ -24,22 +31,8 @@ namespace CodeBase.Logic.Player
 
             return moveDirection;
         }
-        
-        public Vector2 PlayerInputMobile()
-        {
-            Vector2 moveDirection = Vector2.zero;
-            
-            for (int i = 0; i < Input.touchCount; i++)
-            {
-                Touch touch = Input.GetTouch(i);
-                
-                if (touch.position.x < Screen.width * 0.5f)
-                    moveDirection += Vector2.left;
-                else 
-                    moveDirection += Vector2.right;
-            }
 
-            return moveDirection;
-        }
+        public Vector2 PlayerInputMobile() => 
+            _joystick.Direction;
     }
 }

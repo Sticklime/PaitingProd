@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LocalisationEn
   m_EditorClassIdentifier: 
   NameLocalisation: en
+  Font: {fileID: 11400000, guid: 054f9fb9aa437e74e96c2af314199f5f, type: 2}
   DrawingForTwo: Drawing for Two
   Drawing: Drawing
   BlueWin: Blue Win

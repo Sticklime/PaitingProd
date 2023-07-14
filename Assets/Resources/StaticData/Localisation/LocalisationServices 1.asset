@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LocalisationServices 1
   m_EditorClassIdentifier: 
   NameLocalisation: ru
+  Font: {fileID: 11400000, guid: 054f9fb9aa437e74e96c2af314199f5f, type: 2}
   DrawingForTwo: "\u0420\u0438\u0441\u043E\u0432\u0430\u043D\u0438\u0435 \u0434\u043B\u044F
     \u0434\u0432\u043E\u0438\u0445"
   Drawing: "\u0420\u0438\u0441\u043E\u0432\u0430\u043D\u0438\u0435"

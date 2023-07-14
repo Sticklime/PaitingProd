@@ -73,9 +73,9 @@ Material:
     - _OutlineWidth: 0
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
-    - _ScaleRatioA: 1
-    - _ScaleRatioB: 1
-    - _ScaleRatioC: 1
+    - _ScaleRatioA: 0.5
+    - _ScaleRatioB: 0.40625
+    - _ScaleRatioC: 0.40625
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
@@ -120,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: TypoAngularRoundedRegularDemo SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -740346085
   material: {fileID: -2441811482325210962}
-  materialHashCode: 0
+  materialHashCode: 686951387
   m_Version: 1.1.0
   m_SourceFontFileGUID: 16dcf6b75d4135b4280839140fdf9692
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 16dcf6b75d4135b4280839140fdf9692, type: 3}

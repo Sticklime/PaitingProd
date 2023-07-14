@@ -22,6 +22,7 @@ namespace CodeBase.Infrastructure
         {
             Init.Instance.ShowBannerAd();
             LoadServices();
+            
             _menuSate = new MenuSate(_gameFactory, _sceneLoader, _localisation, this);
             _menuSate.Enter();
         }

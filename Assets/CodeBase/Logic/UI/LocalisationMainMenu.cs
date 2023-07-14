@@ -12,7 +12,7 @@ namespace CodeBase.Logic.UI
         protected override void Localisation(LocalisationStaticData _localizationData)
         {
             _drawingForTwo.text = _localizationData.DrawingForTwo;
-            _drawing.text = _localizationData.Drawing;
+            _drawing.text = _localizationData.DescriptionMenu;
             
             _drawingForTwo.font = _localizationData.Font;
             _drawingForTwo.font = _localizationData.Font;

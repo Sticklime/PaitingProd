@@ -19,9 +19,11 @@ namespace CodeBase.Infrastructure
         private GameModeType _gameMode;
         private PlayerLogic _bluePlayer;
         private PlayerLogic _redPlayer;
+        private GameObject _hud;
         private ScorePoint _scorePoint;
 
-        public InitializeLevel(GameState gameState, MenuSate menuSate, IGameFactory gameFactory, SceneLoader sceneLoader,
+        public InitializeLevel(GameState gameState, MenuSate menuSate, IGameFactory gameFactory,
+            SceneLoader sceneLoader,
             LocalisationServices localisation)
         {
             _gameFactory = gameFactory;
@@ -46,13 +48,11 @@ namespace CodeBase.Infrastructure
 
         private void InitHud()
         {
-            GameObject hud = _gameFactory.CreateHud();
+            _hud = _gameFactory.CreateHud();
 
-            _scorePoint = hud.GetComponentInChildren<ScorePoint>();
-
-            hud.GetComponentInChildren<ExitMenuButton>().Construct(_menuSate);
-            hud.GetComponentInChildren<TimerUI>().Construct(_gameState);
-            hud.GetComponent<LocalisationHud>().Construct(_localisation.GetLocalisationData(Init.Instance.language));
+            _hud.GetComponentInChildren<ExitMenuButton>().Construct(_menuSate);
+            _hud.GetComponentInChildren<TimerUI>().Construct(_gameState);
+            _hud.GetComponent<LocalisationHud>().Construct(_localisation.GetLocalisationData(Init.Instance.language));
         }
 
         private void InitPlayers()
@@ -69,8 +69,15 @@ namespace CodeBase.Infrastructure
                     break;
             }
 
+            _scorePoint = _hud.GetComponentInChildren<ScorePoint>();
+
             _bluePlayer.Construct(_scorePoint);
             _redPlayer.Construct(_scorePoint);
+
+            JoystickContainer joystickContainer = _hud.GetComponentInChildren<JoystickContainer>();
+
+            _bluePlayer.GetComponent<PlayerController>().Construct(joystickContainer.BlueJoystick);
+            _redPlayer.GetComponent<PlayerController>().Construct(joystickContainer.RedJoystick);
         }
 
         public void ShowWinner() =>
