@@ -182,7 +182,7 @@ MonoBehaviour:
   leaderboardBtn: {fileID: 0}
   colorDebug: 
   wasLoad: 0
-  language: 
+  language: ru
   mobile: 0
 --- !u!114 &401506780
 MonoBehaviour:
