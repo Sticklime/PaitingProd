@@ -10,9 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5032774750499409013}
   - component: {fileID: 5913083126928528987}
-  - component: {fileID: 7725877881709406848}
   - component: {fileID: 5410532183238054199}
   - component: {fileID: 955108343019432364}
+  - component: {fileID: 7725877881709406848}
+  - component: {fileID: -3861526550234425623}
+  - component: {fileID: 7936405877121776279}
   m_Layer: 0
   m_Name: Player.Base
   m_TagString: Untagged
@@ -87,22 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7725877881709406848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 879326134703733665}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf1413fa15d1b74da7a25b5b200376b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minYPosition: -5.2
-  maxYPosition: 4
-  minXPosition: -8.5
-  maxXPosition: 8.5
 --- !u!61 &5410532183238054199
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -175,3 +161,47 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7725877881709406848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879326134703733665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cf1413fa15d1b74da7a25b5b200376b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minYPosition: -5
+  maxYPosition: 5
+  minXPosition: -8.5
+  maxXPosition: 8.5
+--- !u!114 &-3861526550234425623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879326134703733665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c69c79f8650d4f41acb0bc3d71c29fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerType: 1
+  PaintingColor: {r: 0.105731584, g: 0.20873505, b: 0.8301887, a: 0}
+--- !u!114 &7936405877121776279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879326134703733665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0da36b411d28c5748a9177afd1e46d42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveSpeed: 7
+  PlayerController: {fileID: 0}

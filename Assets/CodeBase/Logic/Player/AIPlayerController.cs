@@ -3,10 +3,8 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Player
 {
-    public class AIPlayerLogic : PlayerLogic
+    public class AIPlayerController : Controller
     {
-        public Vector2 Direction { get; private set; }
-
         private IEnumerator Start()
         {
             while (true)

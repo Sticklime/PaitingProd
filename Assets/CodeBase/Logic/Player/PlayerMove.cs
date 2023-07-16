@@ -4,23 +4,16 @@ namespace CodeBase.Logic.Player
 {
     public class PlayerMove : MonoBehaviour
     {
-        [SerializeField] private PlayerController _playerController;
         [SerializeField] private int _moveSpeed;
+        [SerializeField] private Controller PlayerController;
 
         private void Update()
         {
-            Vector2 direction;
-
-            if (Init.Instance.mobile)
-                direction = _playerController.PlayerInputMobile();
-            else
-                direction = _playerController.PlayerInputPc();
-
-            Move(direction);
-            RotateTowards(direction);
+            OnMove(PlayerController.Direction);
+            Rotate(PlayerController.Direction);
         }
 
-        private void Move(Vector3 direction)
+        private void OnMove(Vector3 direction)
         {
             float scaleSpeed = _moveSpeed * Time.deltaTime;
             Vector3 targetPosition = transform.position + (direction.normalized * scaleSpeed);
@@ -28,7 +21,7 @@ namespace CodeBase.Logic.Player
             transform.position = Vector2.Lerp(transform.position, targetPosition, 0.5f);
         }
 
-        private void RotateTowards(Vector3 direction)
+        private void Rotate(Vector3 direction)
         {
             if (direction == Vector3.zero)
                 return;

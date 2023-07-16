@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -3861526550234425623, guid: b8d90db919183954297907f252adebc6, type: 3}
+      propertyPath: PaintingColor.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
       propertyPath: m_Name
       value: BluePlayer Variant
@@ -80,44 +84,24 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 7725877881709406848, guid: b8d90db919183954297907f252adebc6, type: 3}
-      propertyPath: minYPosition
-      value: -5.2
-      objectReference: {fileID: 0}
+    - target: {fileID: 7936405877121776279, guid: b8d90db919183954297907f252adebc6, type: 3}
+      propertyPath: PlayerController
+      value: 
+      objectReference: {fileID: 2470654138055209012}
     m_RemovedComponents:
     - {fileID: 8970223730826340750, guid: b8d90db919183954297907f252adebc6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
-      insertIndex: 3
-      addedObject: {fileID: 4629496032108010588}
-    - targetCorrespondingSourceObject: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
-      insertIndex: 4
+      insertIndex: -1
       addedObject: {fileID: 2470654138055209012}
-    - targetCorrespondingSourceObject: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
-      insertIndex: 5
-      addedObject: {fileID: 8577685322531109240}
   m_SourcePrefab: {fileID: 100100000, guid: b8d90db919183954297907f252adebc6, type: 3}
 --- !u!1 &6174415511679804312 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 879326134703733665, guid: b8d90db919183954297907f252adebc6, type: 3}
   m_PrefabInstance: {fileID: 6457053850689706041}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4629496032108010588
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6174415511679804312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c69c79f8650d4f41acb0bc3d71c29fc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PlayerType: 1
-  PaintingColor: {r: 0, g: 0.09729433, b: 1, a: 1}
 --- !u!114 &2470654138055209012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,17 +118,3 @@ MonoBehaviour:
   DownKey: 115
   LeftKey: 97
   RightKey: 100
---- !u!114 &8577685322531109240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6174415511679804312}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0da36b411d28c5748a9177afd1e46d42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerController: {fileID: 2470654138055209012}
-  _moveSpeed: 7

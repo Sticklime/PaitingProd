@@ -16,6 +16,7 @@ namespace CodeBase.Infrastructure
         private readonly GameState _gameState;
         private readonly MenuSate _menuSate;
 
+        private JoystickContainer _joystickContainer;
         private GameModeType _gameMode;
         private PlayerLogic _bluePlayer;
         private PlayerLogic _redPlayer;
@@ -23,8 +24,7 @@ namespace CodeBase.Infrastructure
         private ScorePoint _scorePoint;
 
         public InitializeLevel(GameState gameState, MenuSate menuSate, IGameFactory gameFactory,
-            SceneLoader sceneLoader,
-            LocalisationServices localisation)
+            SceneLoader sceneLoader, LocalisationServices localisation)
         {
             _gameFactory = gameFactory;
             _sceneLoader = sceneLoader;
@@ -36,6 +36,7 @@ namespace CodeBase.Infrastructure
         public void LoadLevel(GameModeType gameMode, string sceneName)
         {
             Init.Instance.ShowInterstitialAd();
+            
             _gameMode = gameMode;
             _sceneLoader.Load(sceneName, InitLevel);
         }
@@ -50,9 +51,12 @@ namespace CodeBase.Infrastructure
         {
             _hud = _gameFactory.CreateHud();
 
+            _joystickContainer = _hud.GetComponentInChildren<JoystickContainer>();
+            
             _hud.GetComponentInChildren<ExitMenuButton>().Construct(_menuSate);
             _hud.GetComponentInChildren<TimerUI>().Construct(_gameState);
             _hud.GetComponent<LocalisationHud>().Construct(_localisation.GetLocalisationData(Init.Instance.language));
+            _joystickContainer.Construct(_gameMode);
         }
 
         private void InitPlayers()
@@ -73,12 +77,8 @@ namespace CodeBase.Infrastructure
 
             _bluePlayer.Construct(_scorePoint);
             _redPlayer.Construct(_scorePoint);
-
-            JoystickContainer joystickContainer = _hud.GetComponentInChildren<JoystickContainer>();
-            joystickContainer.Construct(_gameMode);
-
-            _bluePlayer.GetComponent<PlayerController>().Construct(joystickContainer.BlueJoystick);
-            _redPlayer.GetComponent<PlayerController>().Construct(joystickContainer.RedJoystick);
+            _bluePlayer.GetComponent<Controller>().Construct(_joystickContainer.BlueJoystick);
+            _redPlayer.GetComponent<Controller>().Construct(_joystickContainer.RedJoystick);
         }
 
         public void ShowWinner() =>

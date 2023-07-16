@@ -2,37 +2,36 @@ using UnityEngine;
 
 namespace CodeBase.Logic.Player
 {
-    public class PlayerController : MonoBehaviour
+    public class PlayerController : Controller
     {
         [SerializeField] private KeyCode UpKey = KeyCode.W;
         [SerializeField] private KeyCode DownKey = KeyCode.S;
         [SerializeField] private KeyCode LeftKey = KeyCode.A;
         [SerializeField] private KeyCode RightKey = KeyCode.D;
 
-        private Joystick _joystick;
-
-        public void Construct(Joystick joystick)
+        private void Update()
         {
-            _joystick = joystick;
+            if (Init.Instance.mobile)
+                PlayerInputMobile();
+            else
+                PlayerInputPc();
         }
 
-        public Vector2 PlayerInputPc()
+        private void PlayerInputPc()
         {
-            Vector2 moveDirection = Vector2.zero;
+            Direction = Vector2.zero;
 
             if (Input.GetKey(UpKey))
-                moveDirection += Vector2.up;
+                Direction += Vector2.up;
             if (Input.GetKey(DownKey))
-                moveDirection += Vector2.down;
+                Direction += Vector2.down;
             if (Input.GetKey(LeftKey))
-                moveDirection += Vector2.left;
+                Direction += Vector2.left;
             if (Input.GetKey(RightKey))
-                moveDirection += Vector2.right;
-
-            return moveDirection;
+                Direction += Vector2.right;
         }
 
-        public Vector2 PlayerInputMobile() => 
-            _joystick.Direction;
+        private void PlayerInputMobile() =>
+            Direction = Joystick.Direction;
     }
 }
